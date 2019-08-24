@@ -1,0 +1,15 @@
+F=zeros(101,4);
+F(:,1)=partial_bit();
+F(:,2)=partial_dep();
+F(:,3)=partial_am();
+F(:,4)=partial_ph();
+F1=F(:,1);
+F2=F(:,2);
+F3=F(:,3);
+F4=F(:,4);
+Pa=0:0.01:1;
+plot(Pa,abs(F1(int16(Pa./0.01+1),1)'),'r:o',Pa,abs(F2(int16(Pa./0.01+1),1)'),'g:*',Pa,abs(F3(int16(Pa./0.01+1),1)'),'b--',Pa,abs(F4(int16(Pa./0.01+1),1)'),'c:d',Pa,2./3,'k:+');
+legend('bitflip','depolarize','amplitude','phaseflip','classical limit');
+ylim([0 1]);
+xlabel('Pa');
+ylabel('F');
